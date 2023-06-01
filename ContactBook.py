@@ -68,13 +68,17 @@ def view_contact():
 
 
 def save_contact():
-    try:
-        with open("contatos.txt", "w") as arquivo:
-            for name, number_contact in contact.items():
-                arquivo.write(name + ":" + number_contact + "\n")
-        print("Cadastros salvos com sucesso.")
-    except:
-        print("Erro ao salvar os cadastros.")
+    if (len(contact) == 0 ):
+        n()
+        print("Nenhum contato cadastrado!")
+    else:
+        try:
+            with open("E:/Neto - Python/temp/contacts.csv", "w") as arquivo:
+                for name, number_contact in contact.items():
+                    arquivo.write(name + ":" + number_contact + "\n")
+            print("Cadastros salvos com sucesso.")
+        except:
+            print("Erro ao salvar os cadastros.")
 
 
 def load_contact():
